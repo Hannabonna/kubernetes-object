@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployservice
+  labels:
+    role: theRole
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      role: theRole
+  template:
+    metadata:
+      labels:
+        role: theRole
+    spec:
+      containers:
+        - name: deployment
+          image: mprambadi/hello-vue
+          ports:
+            - containerPort: 80
